@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => (
                   style={{ textDecoration: `none` }}
                 >
                   <Thumbnail
-                    image={edge.node.photos[0].image}
+                    image={edge.node.thumbnail}
                   />
                 </Link>
                 <p style={{
@@ -66,12 +66,10 @@ export const query = graphql`
         node {
           strapiId
           title
-          photos {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 500) {
-                  ...GatsbyImageSharpFluid
-                }
+          thumbnail {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
