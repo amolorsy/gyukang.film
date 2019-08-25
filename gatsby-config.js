@@ -18,6 +18,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `${process.env.GATSBY_STRAPI_URL}`,
+        queryLimit: 1000,
         contentTypes: [
           'album',
           'photo',
