@@ -1,4 +1,13 @@
 const path = require(`path`)
+const shell = require('shelljs')
+
+// Workaround for media download concurrency in old versions of gatsby-source-filesystem
+shell.sed(
+  '-i',
+  /concurrent: \d+/,
+  `concurrent: ${process.env.GATSBY_CONCURRENT_DOWNLOAD}`,
+  path.resolve(__dirname, 'node_modules', 'gatsby-source-filesystem/create-remote-file-node.js')
+)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
