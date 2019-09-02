@@ -1,6 +1,6 @@
 import React from "react"
 import { IconContext } from 'react-icons';
-import { FiCalendar, FiMapPin } from 'react-icons/fi';
+import { FiCalendar, FiMapPin, FiCamera, FiAperture } from 'react-icons/fi';
 import Moment from "react-moment"
 import { graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
@@ -28,7 +28,8 @@ const PhotoTemplate = ({ data }) => (
     <div style={{
       display: `flex`,
       justifyContent: `space-between`,
-      alignItems: `center`
+      alignItems: `center`,
+      flexWrap: `wrap`
     }}>
       <div style={{
         display: `flex`,
@@ -65,6 +66,47 @@ const PhotoTemplate = ({ data }) => (
         </p>
       </div>
     </div>
+    <div style={{
+      display: `flex`,
+      justifyContent: `space-between`,
+      alignItems: `center`,
+      flexWrap: `wrap`
+    }}>
+      <div style={{
+        display: `flex`,
+        alignItems: `center`
+      }}>
+        <IconContext.Provider value={{ color: `gray` }}>
+          <FiCamera />
+        </IconContext.Provider>
+        <p style={{
+          color: `gray`,
+          fontFamily: [`Rubik`, `sans-serif`],
+          fontSize: `0.75em`,
+          margin: `1px 0 1px 3px`,
+          textAlign: `right`,  
+        }}>
+          {data.strapiPhoto.image.childImageSharp.fields.exif.cameraModel}, {data.strapiPhoto.image.childImageSharp.fields.exif.lensModel}    
+        </p>
+      </div>
+      <div style={{
+        display: `flex`,
+        alignItems: `center`
+      }}>
+        <IconContext.Provider value={{ color: `gray` }}>
+          <FiAperture />
+        </IconContext.Provider>
+        <p style={{
+          color: `gray`,
+          fontFamily: [`Rubik`, `sans-serif`],
+          fontSize: `0.75em`,
+          margin: `1px 0 1px 3px`,
+          textAlign: `right`,  
+        }}>
+          {data.strapiPhoto.image.childImageSharp.fields.exif.focalLength}mm, F{data.strapiPhoto.image.childImageSharp.fields.exif.fNumber}, {data.strapiPhoto.image.childImageSharp.fields.exif.exposureTime}s, ISO {data.strapiPhoto.image.childImageSharp.fields.exif.iso}
+        </p>
+      </div>
+    </div>
   </div>
 )
 
@@ -77,6 +119,16 @@ export const query = graphql`
         childImageSharp {
           fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid
+          }
+          fields {
+            exif {
+              cameraModel
+              lensModel
+              focalLength
+              fNumber
+              exposureTime
+              iso
+            }
           }
         }
       }
