@@ -44,6 +44,7 @@ class Footer extends Component {
         <div
           style={{
             textAlign: `center`,
+            marginBottom: `0.9em`
           }}
         >
           <p
@@ -52,6 +53,7 @@ class Footer extends Component {
               textDecoration: `none`,
               fontFamily: [`Cabin`, `cursive`],
               fontSize: `0.75em`,
+              margin: 0
             }}
           >
             © {new Date().getFullYear()}. Gyu Kang. All rights reserved.

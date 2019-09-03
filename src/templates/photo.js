@@ -16,7 +16,8 @@ const PhotoTemplate = ({ data }) => (
       maxWidth: `740px`,
       margin: `0 auto`,
       padding: `10px`,
-      height: `100%`
+      minHeight: `100%`,
+      overflow: 'scroll'
     }}
   >
     <GatsbyImage

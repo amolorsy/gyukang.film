@@ -22,10 +22,10 @@ class Header extends Component {
             to="/"
             style={{
               textDecoration: `none`,
-              padding: `10px`,
+              margin: `0.1em`
             }}
           >
-            <img src={logo} width="180" height="90" alt="logo" />
+            <img src={logo} width="180" height="90" alt="logo" style={{ margin: 0 }}/>
           </Link>
         </h1>
       </header>
