@@ -87,7 +87,7 @@ const PhotoTemplate = ({ data }) => (
           margin: `1px 0 1px 3px`,
           textAlign: `right`,  
         }}>
-          {data.strapiPhoto.image.childImageSharp.fields.exif.cameraModel}, {data.strapiPhoto.image.childImageSharp.fields.exif.lensModel}    
+          {data.strapiPhoto.image.fields.exif.cameraModel}, {data.strapiPhoto.image.fields.exif.lensModel}    
         </p>
       </div>
       <div style={{
@@ -104,7 +104,7 @@ const PhotoTemplate = ({ data }) => (
           margin: `1px 0 1px 3px`,
           textAlign: `right`,  
         }}>
-          {data.strapiPhoto.image.childImageSharp.fields.exif.focalLength}mm, F{data.strapiPhoto.image.childImageSharp.fields.exif.fNumber}, {data.strapiPhoto.image.childImageSharp.fields.exif.exposureTime}s, ISO {data.strapiPhoto.image.childImageSharp.fields.exif.iso}
+          {data.strapiPhoto.image.fields.exif.focalLength}mm, F{data.strapiPhoto.image.fields.exif.fNumber}, {data.strapiPhoto.image.fields.exif.exposureTime}s, ISO {data.strapiPhoto.image.fields.exif.iso}
         </p>
       </div>
     </div>
@@ -121,15 +121,15 @@ export const query = graphql`
           fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid
           }
-          fields {
-            exif {
-              cameraModel
-              lensModel
-              focalLength
-              fNumber
-              exposureTime
-              iso
-            }
+        }
+        fields {
+          exif {
+            cameraModel
+            lensModel
+            focalLength
+            fNumber
+            exposureTime
+            iso
           }
         }
       }

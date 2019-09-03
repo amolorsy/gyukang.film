@@ -13,8 +13,8 @@ shell.sed(
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'ImageSharp') {
-    const absolutePath = node.parent.split(' ')[0];
+  if (node.internal.type === 'File') {
+    const absolutePath = node.absolutePath
     
     fastExif.read(absolutePath)
       .then((exifData) => {
