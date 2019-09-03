@@ -18,6 +18,7 @@ exports.onCreateNode = ({ node, actions }) => {
     
     fastExif.read(absolutePath)
       .then((exifData) => {
+        const dateTimeOriginal = exifData.exif.DateTimeOriginal
         const cameraModel = exifData.image.Model
         const lensModel = exifData.exif.LensModel.replace(/(EF|EF-M)(\d+)/, '$1 $2')
         const focalLength = exifData.exif.FocalLength
@@ -28,7 +29,7 @@ exports.onCreateNode = ({ node, actions }) => {
         createNodeField({
           node,
           name: 'exif',
-          value: {cameraModel, lensModel, focalLength, fNumber, exposureTime, iso}
+          value: {dateTimeOriginal, cameraModel, lensModel, focalLength, fNumber, exposureTime, iso}
         });
       })
       .catch((err) => console.error(err));

@@ -41,7 +41,7 @@ export default AlbumTemplate
 
 export const query = graphql`
   query AlbumTemplate($id: String!) {
-    allStrapiPhoto(sort: {fields: date, order: ASC}, filter: {album: {id: {eq: $id}}}) {
+    allStrapiPhoto(sort: {fields: image___fields___exif___dateTimeOriginal, order: ASC}, filter: {album: {id: {eq: $id}}}) {
       edges {
         node {
           strapiId

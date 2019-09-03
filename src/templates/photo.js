@@ -63,7 +63,7 @@ const PhotoTemplate = ({ data }) => (
           margin: `1px 0 1px 3px`,
           textAlign: `right`,  
         }}>
-          <Moment format="YYYY. M. D">{new Date(data.strapiPhoto.date)}</Moment>
+          <Moment format="YYYY. M. D">{new Date(data.strapiPhoto.image.fields.exif.dateTimeOriginal)}</Moment>
         </p>
       </div>
     </div>
@@ -124,6 +124,7 @@ export const query = graphql`
         }
         fields {
           exif {
+            dateTimeOriginal
             cameraModel
             lensModel
             focalLength
@@ -133,7 +134,6 @@ export const query = graphql`
           }
         }
       }
-      date
       location {
         name
       }
