@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { IconContext } from 'react-icons';
-import { FiInstagram, FiMail } from 'react-icons/fi';
+import { FiInstagram, FiMail, FiGithub } from 'react-icons/fi';
 
 class Footer extends Component {
   render() {
@@ -21,6 +21,15 @@ class Footer extends Component {
             margin: `0 auto`,
             display: `flex`,
           }}>
+            <li style={{
+              margin: `0 10px`
+            }}>
+              <a href="https://github.com/gyu-kang/gyukang.photo">
+                <IconContext.Provider value={{ color: `#27211d`, size: `1.5em` }}>
+                  <FiGithub />
+                </IconContext.Provider>
+              </a>
+            </li>
             <li style={{
               margin: `0 10px`
             }}>
