@@ -61,7 +61,7 @@ export default IndexPage
 
 export const query = graphql`
   query IndexPage {
-    allStrapiAlbum {
+    allStrapiAlbum(sort: {fields: number, order: DESC}) {
       edges {
         node {
           strapiId
