@@ -5,28 +5,19 @@ import Thumbnail from "../components/thumbnail"
 
 const AlbumTemplate = ({ data }) => (
   <Layout>
-    <div style={{
-      width: `100%`,
-    }}>
-      <ul style={{
-        display: `flex`,
-        overflow: `scroll`,
-        listStyle: `none`,
-        margin: 0,
-      }}>
+    <div style={styles.container}>
+      <ul style={styles.photoList}>
         {
           data.allStrapiPhoto.edges.map(edge => {
             return (
               <li
                 key={edge.node.strapiId}
-                style={{
-                  margin: `10px`
-                }}>
+                style={styles.photoListItem}>
                 <Link
                   to={`/photos/${edge.node.strapiId}`}
-                  style={{ textDecoration: `none` }}
+                  style={styles.photoLink}
                 >
-                  <Thumbnail image={edge.node.image} />
+                  <Thumbnail image={edge.node.image}/>
                 </Link>
               </li>
             )
@@ -36,6 +27,24 @@ const AlbumTemplate = ({ data }) => (
     </div>
   </Layout>
 )
+
+const styles = {
+  container: {
+    width: `100%`,
+  },
+  photoList: {
+    display: `flex`,
+    overflow: `scroll`,
+    listStyle: `none`,
+    margin: 0,
+  },
+  photoListItem: {
+    margin: `10px`,
+  },
+  photoLink: {
+    textDecoration: `none`
+  },
+}
 
 export default AlbumTemplate
 

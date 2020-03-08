@@ -5,47 +5,24 @@ import Thumbnail from "../components/thumbnail"
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <div style={{
-      width: `100%`,
-    }}>
-      <ul style={{
-        display: `flex`,
-        overflow: `scroll`,
-        listStyle: `none`,
-        margin: 0,
-      }}>
+    <div style={styles.container}>
+      <ul style={styles.albumList}>
         {
           data.allStrapiAlbum.edges.map(edge => {
             return (
               <li
                 key={edge.node.strapiId}
-                style={{
-                  margin: `10px`,
-                  position: `relative`,
-                }}
+                style={styles.albumListItem}
               >
                 <Link
                   to={`/albums/${edge.node.strapiId}`}
-                  style={{ textDecoration: `none` }}
+                  style={styles.albumLink}
                 >
                   <Thumbnail
                     image={edge.node.thumbnail}
                   />
                 </Link>
-                <p style={{
-                  width: `100%`,
-                  backgroundColor: `rgba(0, 0, 0, 0.25)`,
-                  position: `absolute`,
-                  left: `50%`,
-                  bottom: 0,
-                  transform: `translate(-50%, 0)`,
-                  textAlign: `center`,
-                  fontFamily: [`Lexend Deca`, "Kosugi Maru"],
-                  fontSize: `1.0em`,
-                  padding: `25px 0`,
-                  color: `white`,
-                  opacity: `0.75`,
-                }}>
+                <p style={styles.albumTitle}>
                   {edge.node.title}
                 </p>
               </li>
@@ -56,6 +33,39 @@ const IndexPage = ({ data }) => (
     </div>
   </Layout>
 )
+
+const styles = {
+  container: {
+    width: `100%`,
+  },
+  albumList: {
+    display: `flex`,
+    overflow: `scroll`,
+    listStyle: `none`,
+    margin: 0,
+  },
+  albumListItem: {
+    margin: `10px`,
+    position: `relative`,
+  },
+  albumLink: {
+    textDecoration: `none`,
+  },
+  albumTitle: {
+    width: `100%`,
+    backgroundColor: `rgba(0, 0, 0, 0.25)`,
+    position: `absolute`,
+    left: `50%`,
+    bottom: 0,
+    transform: `translate(-50%, 0)`,
+    textAlign: `center`,
+    fontFamily: [`Lexend Deca`, "Kosugi Maru"],
+    fontSize: `1.0em`,
+    padding: `25px 0`,
+    color: `white`,
+    opacity: `0.75`,
+  },
+}
 
 export default IndexPage
 

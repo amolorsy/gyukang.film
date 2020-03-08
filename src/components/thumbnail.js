@@ -8,7 +8,6 @@ class Thumbnail extends Component {
     this.state = {
       hover: false,
     }
-    this.toggleHover = this.toggleHover.bind(this)
   }
 
   render() {
@@ -16,23 +15,30 @@ class Thumbnail extends Component {
       <div
         onMouseEnter={this.toggleHover}
         onMouseLeave={this.toggleHover}
-        style={{
-          minWidth: `40vh`,
-        }}
+        style={styles.container}
       >
         <GatsbyImage
           style={{
-            transition: `all 0.25s`,
-            opacity: this.state.hover ? 0.33 : 1,
+            ...styles.thumbnailImage,
+            opacity: (this.state.hover ? 0.33 : 1)
           }}
-          fluid={this.props.image.childImageSharp.fluid} />
+          fluid={this.props.image.childImageSharp.fluid}/>
       </div>
     )
   }
 
-  toggleHover() {
+  toggleHover = () => {
     this.setState({ hover: !this.state.hover })
   }
+}
+
+const styles = {
+  container: {
+    minWidth: `40vh`,
+  },
+  thumbnailImage: {
+    transition: `all 0.25s`,
+  },
 }
 
 export default Thumbnail
