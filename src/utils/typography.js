@@ -3,11 +3,11 @@ import Typography from "typography"
 const typography = new Typography({
   googleFonts: [
     {
-      name: "Cabin",
-      styles: ["400"],
+      name: "Sen",
+      styles: ["400", "800"],
     },
     {
-      name: "Rubik",
+      name: "Sarina",
       styles: ["400"],
     },
     {
@@ -15,9 +15,13 @@ const typography = new Typography({
       styles: ["400"],
     },
     {
+      name: "Noto Serif KR",
+      styles: ["200"],
+    },
+    {
       name: "Kosugi Maru",
       styles: ["400"],
-    }
+    },
   ],
 })
 

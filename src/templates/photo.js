@@ -80,7 +80,7 @@ const styles = {
   },
   exif: {
     color: `gray`,
-    fontFamily: [`Rubik`, `sans-serif`],
+    fontFamily: [`Sen`, `sans-serif`],
     fontSize: `0.75em`,
     margin: `1px 0 1px 3px`,
     textAlign: `right`,

@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, actions }) => {
 
   if (node.internal.type === 'File') {
     const absolutePath = node.absolutePath
-    
+
     fastExif.read(absolutePath)
       .then((exifData) => {
         const dateTimeOriginal = exifData.exif.DateTimeOriginal
@@ -38,6 +38,12 @@ exports.onCreateNode = ({ node, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+
+  createPage({
+    path: `/about`,
+    component: path.resolve(`src/templates/about.js`),
+    context: {},
+  })
 
   return graphql(`
     query {

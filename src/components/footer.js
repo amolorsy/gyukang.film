@@ -56,7 +56,7 @@ const styles = {
   copyright: {
     color: `#27211d`,
     textDecoration: `none`,
-    fontFamily: [`Cabin`, `cursive`],
+    fontFamily: [`Sen`, `sans-serif`],
     fontSize: `0.75em`,
     margin: 0,
     textAlign: `center`,
