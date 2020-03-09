@@ -20,8 +20,9 @@ const styles = {
   container: {
     display: `flex`,
     flexDirection: `column`,
-    justifyContent: `space-around`,
-    height: `100%`
+    justifyContent: `space-between`,
+    alignItems: 'center',
+    minHeight: '100%',
   },
 }
 

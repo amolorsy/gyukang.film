@@ -1,20 +1,19 @@
 import { Link } from "gatsby"
 import React, { Component } from "react"
-import logo from "../../static/logo.png"
+import NavigationBar from "./navigationBar"
 
 class Header extends Component {
   render() {
     return (
       <header style={styles.container}>
-        <Link to="/" style={styles.homeLink}>
-          <img
-            src={logo}
-            width="180"
-            height="90"
-            alt="logo"
-            style={styles.logoImage}
-          />
-        </Link>
+        <div>
+          <Link to="/" style={styles.homeLink}>
+            <p style={styles.logo}>gyukang.photo</p>
+          </Link>
+        </div>
+        <div style={styles.navigationBar}>
+          <NavigationBar />
+        </div>
       </header>
     )
   }
@@ -27,15 +26,29 @@ const styles = {
     left: 0,
     width: `100%`,
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    paddingTop: 35,
+    paddingBottom: 35,
+    paddingLeft: 20,
+    paddingRight: 20,
+    height: 75,
+    backgroundColor: 'white',
+    zIndex: 9999,
   },
   homeLink: {
     textDecoration: `none`,
-    margin: `0.1em`,
+    color: 'hsla(0, 0%, 0%, 0.8)',
   },
-  logoImage: {
-    margin: 0,
+  logo: {
+    fontFamily: ['Sarina', 'sans-serif'],
+    fontSize: `1.5em`,
+    marginTop: 0,
+    marginBottom: 0,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  navigationBar: {
+    flex: 1,
   },
 }
 

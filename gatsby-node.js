@@ -40,6 +40,12 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   createPage({
+    path: `/albums`,
+    component: path.resolve(`src/templates/albumList.js`),
+    context: {},
+  })
+
+  createPage({
     path: `/about`,
     component: path.resolve(`src/templates/about.js`),
     context: {},

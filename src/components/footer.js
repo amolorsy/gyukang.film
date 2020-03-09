@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { IconContext } from "react-icons"
-import { FiInstagram, FiMail, FiGithub } from "react-icons/fi"
+import { FaInstagram } from "react-icons/fa"
 
 class Footer extends Component {
   render() {
@@ -8,22 +8,20 @@ class Footer extends Component {
       <footer style={styles.container}>
         <ul style={styles.snsBadgeList}>
           <li style={styles.snsBadgeListItem}>
-            <a href="https://github.com/gyu-kang/gyukang.photo">
-              <IconContext.Provider value={styles.snsIcon}>
-                <FiGithub/>
-              </IconContext.Provider>
-            </a>
-          </li>
-          <li style={styles.snsBadgeListItem}>
-            <a href="https://instagram.com/gyukang.photo">
-              <IconContext.Provider value={styles.snsIcon}>
-                <FiInstagram/>
+            <a
+              href="https://instagram.com/gyukang.photo"
+              style={styles.snsBadgeListItemLink}
+            >
+              <IconContext.Provider
+                value={{ color: "hsla(0, 0%, 0%, 0.8)", size: 21, }}
+              >
+                <FaInstagram/>
               </IconContext.Provider>
             </a>
           </li>
         </ul>
         <p style={styles.copyright}>
-          Copyright {new Date().getFullYear()}. Gyu Kang. All rights reserved.
+          ⓒ {new Date().getFullYear()}. Gyu Kang. All rights reserved.
         </p>
       </footer>
     )
@@ -32,35 +30,34 @@ class Footer extends Component {
 
 const styles = {
   container: {
-    position: `fixed`,
-    bottom: 0,
-    right: 0,
-    width: `100%`,
-    display: `flex`,
+    width: '100%',
+    display: 'flex',
     flexDirection: 'column',
-    justifyContent: `center`,
-    alignItems: `center`,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 15,
+    paddingBottom: 15,
   },
   snsBadgeList: {
-    listStyle: `none`,
-    margin: `0 auto`,
-    display: `flex`,
+    listStyle: 'none',
+    display: 'flex',
+    margin: 0,
   },
   snsBadgeListItem: {
-    margin: `0 10px`,
+    margin: 0,
   },
-  snsIcon: {
-    color: `#27211d`,
-    size: `1.5em`,
+  snsBadgeListItemLink: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: 5,
   },
   copyright: {
-    color: `#27211d`,
-    textDecoration: `none`,
-    fontFamily: [`Sen`, `sans-serif`],
-    fontSize: `0.75em`,
+    color: 'hsla(0, 0%, 0%, 0.8)',
+    textDecoration: 'none',
+    fontFamily: ['Sen', 'sans-serif'],
+    fontSize: '0.75em',
+    textAlign: 'center',
     margin: 0,
-    textAlign: `center`,
-    marginBottom: `0.9em`,
   },
 }
 

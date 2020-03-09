@@ -15,7 +15,6 @@ class Thumbnail extends Component {
       <div
         onMouseEnter={this.toggleHover}
         onMouseLeave={this.toggleHover}
-        style={styles.container}
       >
         <GatsbyImage
           style={{
@@ -33,9 +32,6 @@ class Thumbnail extends Component {
 }
 
 const styles = {
-  container: {
-    minWidth: `40vh`,
-  },
   thumbnailImage: {
     transition: `all 0.25s`,
   },
