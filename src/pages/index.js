@@ -1,7 +1,10 @@
+import React from "react"
 import { graphql } from "gatsby"
 import PhotoGrid from "../components/photoGrid"
 
-export default PhotoGrid
+export default ({ data }) => (
+  <PhotoGrid edges={data.allStrapiPhoto.edges} />
+)
 
 export const query = graphql`
   query IndexPage {
