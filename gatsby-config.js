@@ -9,13 +9,13 @@ require("dotenv").config()
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-plugin-typography",
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: "src/utils/typography",
+        pathToConfigModule: 'src/utils/typography',
       },
     },
     {
-      resolve: `gatsby-source-strapi`,
+      resolve: 'gatsby-source-strapi',
       options: {
         apiURL: `${process.env.GATSBY_STRAPI_URL}`,
         queryLimit: 1000,
@@ -27,13 +27,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: 'gatsby-plugin-sharp',
       options: {
         useMozJpeg: true,
         stripMetadata: true,
         defaultQuality: 80,
       },
     },
-    `gatsby-transformer-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
   ],
 }
