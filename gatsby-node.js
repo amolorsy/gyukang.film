@@ -80,7 +80,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       edge.node.photos.forEach(photo => {
         createPage({
-          path: `/photos/${photo.id}`,
+          path: `/${photo.id}`,
           component: path.resolve(`src/templates/photo.js`),
           context: {
             id: photo.id,

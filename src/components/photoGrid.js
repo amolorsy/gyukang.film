@@ -43,7 +43,7 @@ class PhotoGrid extends Component {
               this.state.currentEdges.map(edge => {
                 const PhotoListItem = () => (
                   <Link
-                    to={`/photos/${edge.node.strapiId}`}
+                    to={`/${edge.node.strapiId}`}
                     style={styles.photoListItem}>
                     <Thumbnail image={edge.node.image}/>
                   </Link>
